@@ -54,14 +54,6 @@ ListSchema.statics.search = async function search (params, cb) {
     List
       .find(SearchParams, items)
       .sort(order + sort)
-      .populate({
-        path: 'products',
-        populate: [
-          { path: 'category' },
-          { path: 'provider' },
-          { path: 'alternatives' },
-        ],
-      })
       .limit(limit)
       .skip((limit * page) - limit)
       .lean(),

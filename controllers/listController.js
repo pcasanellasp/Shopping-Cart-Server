@@ -15,7 +15,16 @@ async function get (req, res, next) {
 
 async function show (req, res, next) {
   try {
-    const list = await List.findOne({ _id: req.params.id }).lean()
+    const list = await List.findOne({ _id: req.params.id })
+      .populate({
+        path: 'products',
+        populate: [
+          { path: 'category' },
+          { path: 'provider' },
+          { path: 'alternatives' },
+        ],
+      })
+      .lean()
     if (list) {
       return res.status(200).json(list)
     }
