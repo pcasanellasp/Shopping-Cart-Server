@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "name": "Shopping Cart Server",
+  "builds": [
+      {
+          "src": "bin/server.js",
+          "use": "@now/node-server"
+      }
+  ],
+  "routes": [
+      {
+          "headers": {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+              "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+          },
+          "src": "/.*",
+          "dest": "/bin/server.js"
+      }
+  ],
+  "env": {
+      "VERSION": "1.0.0",
+      "MONGO_DB_URI": "@mongo_db_uri",
+      "NODE_ENV": "@node_env",
+      "PORT": "@port",
+      "JWT_KEY":"@jwt_key"
+  }
+}

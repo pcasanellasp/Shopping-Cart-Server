@@ -4,12 +4,15 @@
   "description": "Shopping Cart Server",
   "main": "bin/server.js",
   "scripts": {
-    "start": "node -r dotenv/config bin/server.js",
+    "start": "node -r dotenv/config bin/server.js -q dotenv_config_path=.env",
     "dev": "nodemon -r dotenv/config bin/server.js  -q dotenv_config_path=.env.development",
     "test": "jest --watch --testTimeout=10000 --verbose"
   },
   "keywords": [],
   "author": "Pau Casanellas <pcasanellasp@gmail.com>",
+  "engines" : { 
+    "node" : ">=8.0.0 <12.0.0" 
+  },
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
