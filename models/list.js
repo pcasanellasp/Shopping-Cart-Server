@@ -20,6 +20,7 @@ const ListSchema = new Schema({
     type: String,
     enum: ['started', 'canceled', 'completed'],
     required: true,
+    lowercase: true,
     default: 'started',
   },
   CompletedAt: {
